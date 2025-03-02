@@ -66,7 +66,7 @@ function AddNewIt() {
     }
   return (
     <div>
-        <div className='p-12 border-black rounded-lg bg-gray-200 hover:scale-105 hover:shadow-sm cursor-pointer transition-all'
+        <div className='p-12 border border-black rounded-xl bg-gray-200 hover:scale-105 hover:shadow-sm cursor-pointer transition-all'
         onClick={()=>setOpenDailog(true)}>
             <h2 className='text-lg text-center'>+ Add New</h2>
         </div>
@@ -91,8 +91,8 @@ function AddNewIt() {
                     </div>
                 </div>
                 <div className='flex gap-1 justify-end'>
-                    <Button type="button" variant="ghost" onClick={()=>setOpenDailog(false)}>Cancel</Button>
-                    <Button type="submit" disabled={loading}>
+                    <Button className='cursor-pointer' type="button" variant="ghost" onClick={()=>setOpenDailog(false)}>Cancel</Button>
+                    <Button className='cursor-pointer' type="submit" disabled={loading}>
                         {loading?
                         <>
                         <LoaderCircle className='animate-spin'/>Generating

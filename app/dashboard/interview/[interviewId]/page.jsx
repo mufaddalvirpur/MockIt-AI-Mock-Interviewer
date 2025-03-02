@@ -7,6 +7,7 @@ import { Lightbulb, WebcamIcon } from 'lucide-react'
 import { useParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import Webcam from 'react-webcam'
+import Link from 'next/link'
 
 function Interview() {
     const params=useParams()
@@ -28,11 +29,11 @@ function Interview() {
         <h2 className='font-bold text-2xl'>Let's Get Started</h2>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
             <div className='flex flex-col my-5 gap-1'>
-                <div className='flex flex-col p-5  border-black rounded-lg gap-1'>
+                <div className='flex flex-col p-5 rounded-lg gap-1'>
                 <h2 className='text-lg'><strong>Job Role/Position: </strong>{interviewData?interviewData.jobPosition:"Loading"}</h2>
                 <h2 className='text-lg'><strong>Job Description/Skills: </strong>{interviewData?interviewData.jobDesc:"Loading"}</h2>
                 </div>
-                <div className='p-5 border rounded-lg border-black bg-gray-200'>
+                <div className='p-5 border rounded-xl border-gray-500 bg-gray-200'>
                 <h2 className='flex gap-2 items-center'><Lightbulb/><strong>Information</strong></h2>
                 <h2 className='mt-3'>{process.env.NEXT_PUBLIC_INFO}</h2>
                 </div>
@@ -71,13 +72,15 @@ function Interview() {
         />
         ) : (
         <>
-        <WebcamIcon className='h-72 w-full p-20 border-black bg-gray-200 rounded-lg' />
-        <Button onClick={() => setWebCamEnabled(true)}>Enable Cam & Mic</Button>
+        <WebcamIcon className='h-72 w-full p-20 border border-gray-300 bg-gray-100 rounded-xl' />
+        <Button className='cursor-pointer' onClick={() => setWebCamEnabled(true)}>Enable Cam & Mic</Button>
         </>
         )}
 
         {/* Wrapping Start Interview button in the same container to align it below */}
-        <Button>Start Interview</Button>
+        <Link href={`/dashboard/interview/${params.interviewId}/start`}>
+            <Button className='cursor-pointer'>Start Interview</Button>
+        </Link>
         </div>
 
         </div>
