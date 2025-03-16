@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { chatSession } from '@/utils/GeminiAI'
-import { LoaderCircle } from 'lucide-react'
+import { LoaderCircle, X } from 'lucide-react'
 import { db } from '@/utils/db'
 import { MockIt } from '@/utils/schema'
 import { v4 as uuidv4 } from 'uuid'
@@ -66,9 +66,9 @@ function AddNewIt() {
     }
   return (
     <div>
-        <div className='p-12 border border-black rounded-xl bg-gray-200 hover:scale-105 hover:shadow-sm cursor-pointer transition-all'
+        <div className='p-14 border border-black rounded-xl bg-gray-200 hover:scale-105 hover:shadow-sm cursor-pointer transition-all'
         onClick={()=>setOpenDailog(true)}>
-            <h2 className='text-lg text-center'>+ Add New</h2>
+            <h2 className='text-xl text-center font-medium'>+ Add New</h2>
         </div>
         <Dialog open={openDailog}>
         
@@ -92,7 +92,7 @@ function AddNewIt() {
                 </div>
                 <div className='flex gap-1 justify-end'>
                     <Button className='cursor-pointer' type="button" variant="ghost" onClick={()=>setOpenDailog(false)}>Cancel</Button>
-                    <Button className='cursor-pointer' type="submit" disabled={loading}>
+                    <Button className='cursor-pointer rounded-xl px-6' type="submit" disabled={loading}>
                         {loading?
                         <>
                         <LoaderCircle className='animate-spin'/>Generating
